@@ -10,11 +10,11 @@ class CaptureError(Exception):
 
 @dataclass
 class Camera:
+    camera_index: int = 0
     frame_count: int = 0
     framerate: int = 30
     width: int = 1280
     height: int = 720
-    camera_index: int = 0
 
     def start(self):
         cap = cv2.VideoCapture(self.camera_index)

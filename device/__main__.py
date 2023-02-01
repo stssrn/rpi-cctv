@@ -14,7 +14,7 @@ model = YOLO("yolov8n.pt")
 
 sio = socketio.Client()
 sio.connect(f"http://{HOST}:{PORT}/", namespaces=["/device"])
-with Camera(camera_index=1) as cam:
+with Camera() as cam:
     for frame in cam.frames():
         # send frame to middleware
         _, jpeg = cv2.imencode(".jpg", frame)

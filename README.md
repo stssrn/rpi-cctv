@@ -5,7 +5,7 @@
 This application turns your Raspberry Pi into an IoT security camera.
 
 Features:
-- Notify the user when the camera detects a person.
+- Send an email when the camera detects a person.
 - Show a live feed of the camera on a website.
 
 ## Demonstration
@@ -139,7 +139,7 @@ I figured that I need some object detection model to detect objects from the vid
 
 Implementing the model was pretty simple, yet I had a few issues. Processing the captured video frame was easy; All I had to do was turn the frame bytes into a Numpy array. I ran my code, and the YOLO module started printing what object it detected in the video frame. The issues began when I programmatically wanted to figure out what object was being detected.
 
-When YOLO detects an object, it returns the class integer of the object. For example, if it detects a person it returns a `0`, and the `0` maps to the person class. So somewhere there is a list that maps this index to a class I assume. I couldn't find anything about this in the documentation, so I looked in the modules source code where I did find that this list exists but I don't know how to access it[^5]. With trial and error, I figured out that the person class is `0`, so that's the only object that the device can detect.
+When YOLO detects an object, it returns the class integer of the object. For example, if it detects a person it returns a `0`, and the `0` maps to the `person` class. So somewhere there is a list that maps this index to a class I assume. I couldn't find anything about this in the documentation, so I looked in the modules source code where I did find that this list exists but I don't know how to access it[^5]. With trial and error, I figured out that the person class is `0`, so that's the only object that the device can detect.
 
 The object detection takes a little over 500ms to process per frame when using the Pytorch backend, which runs on the Raspberry Pi's CPU. I decided to run the object detection once per second because of this.
 
