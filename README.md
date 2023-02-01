@@ -1,10 +1,16 @@
 # Raspberry Pi Security Camera
 
+<img src="https://user-images.githubusercontent.com/72272599/215929910-cd133aeb-b269-42a1-bd3f-3b82d31b294b.jpg" width=400>
+
 This application turns your Raspberry Pi into an IoT security camera.
 
 Features:
 - Notify the user when the camera detects a person.
 - Show a live feed of the camera on a website.
+
+## Demonstration
+
+https://user-images.githubusercontent.com/72272599/215930372-29606c00-b9ed-4688-b42d-c1fb2a69b741.mp4
 
 ## Requirements
 
